@@ -25,6 +25,7 @@ module.exports = {
   rules: {
     'no-use-before-define': 'off',
     'linebreak-style': ['error', 'unix'],
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
     quotes: ['error', 'single'],
     semi: ['error', 'never']
   },

@@ -18,6 +18,7 @@
     "@babel/core": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
     "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.16.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
     "@types/jest": "^27.0.2",
@@ -32,6 +33,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "jest": "^27.2.4",
     "parcel-bundler": "^1.12.5",
+    "prettier": "^2.4.1",
     "react-test-renderer": "^17.0.2",
     "sass": "^1.42.1",
     "typescript": "^4.4.3"
@@ -41,11 +43,17 @@
     "react-dom": "^17.0.2"
   },
   "babel": {
-    "presets": ["@babel/preset-env", "@babel/preset-react"]
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react",
+      "@babel/preset-typescript"
+    ]
   },
   "jest": {
     "testEnvironment": "jsdom",
-    "setupFilesAfterEnv": ["<rootDir>/test/setup.js"],
+    "setupFilesAfterEnv": [
+      "<rootDir>/test/setup.js"
+    ],
     "moduleNameMapper": {
       "\\.(css|less|sass|scss)$": "<rootDir>/test/styleMock.js"
     }
