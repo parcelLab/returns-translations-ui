@@ -1,3 +1,13 @@
 import React from 'react'
 
-export const Application = () => <h1>Application</h1>
+interface ApplicationProps {
+  lang: string
+  country: string
+  user: string
+}
+
+export const Application = ({ lang, country, user }: ApplicationProps) => (
+  <h1>
+    Application {lang}, {country}, {user}
+  </h1>
+)
