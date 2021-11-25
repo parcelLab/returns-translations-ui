@@ -5,6 +5,16 @@
   --border-radius: 5px;
   --color-primary: #111e50;
   --color-lightGrey: #eee;
+  --color-dark: #000000
 
   font-family: 'Lato', sans-serif;
+
+  .accordion-button:not(.collapsed) {
+    color: var(--color-dark);
+    background-color: var(--color-lightGrey);
+    font-weight: bold;
+  }
+  .accordion-button:focus{
+    box-shadow: none;
+  }
 }
