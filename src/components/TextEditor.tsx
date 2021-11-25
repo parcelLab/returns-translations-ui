@@ -1,8 +1,11 @@
-import React, { ChangeEvent } from 'react'
+import React from 'react'
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import ReactQuill from 'react-quill'
+import 'react-quill/dist/quill.snow.css'
+import './TextEditor.scss'
 
 interface TextEditorProps {
+  description?: string
   placeholder?: string
   title?: string
   value: string
@@ -10,30 +13,24 @@ interface TextEditorProps {
 }
 
 const TextEditor = ({
+  description,
   title,
   placeholder = '',
   value,
   onChange
 }: TextEditorProps) => {
-  const handleChange = (evt: ChangeEvent<HTMLTextAreaElement>) => {
-    evt.preventDefault()
-    onChange(evt.target.value)
-  }
   return (
     <Form.Group className='mb-3'>
-      {title && <Form.Label>{title}</Form.Label>}
-      <Form.Control
-        as='textarea'
-        rows={3}
-        role='textbox'
-        aria-multiline='true'
-        aria-placeholder={placeholder}
-        placeholder={placeholder}
+      {title && <Form.Label style={{ fontWeight: 'bold' }}>{title}</Form.Label>}{' '}
+      {description && (
+        <Form.Text className='text-muted'> {description}</Form.Text>
+      )}
+      <ReactQuill
+        theme='snow'
         value={value}
-        onChange={handleChange}
+        onChange={onChange}
+        placeholder={placeholder}
       />
-
-      <Button variant='primary'>Primary</Button>
     </Form.Group>
   )
 }

@@ -1,22 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TextEditor from './components/TextEditor'
 
 interface ApplicationProps {
   lang: string
-  country: string
+  countries: string
   user: string
 }
 
-export const Application = ({ lang, country, user }: ApplicationProps) => (
-  <>
-    <h1>
-      Application {lang}, {country}, {user}
-    </h1>
-    <TextEditor
-      value='<b>hola</b>'
-      onChange={(content: string) => {
-        console.log(content)
-      }}
-    />
-  </>
-)
+export const Application = ({ lang, countries, user }: ApplicationProps) => {
+  const [value, setValue] = useState('<b>hola</b>')
+  return (
+    <>
+      <h1>
+        Application {lang}, {countries}, {user}
+      </h1>
+      <TextEditor
+        title='My title'
+        description='My description'
+        placeholder='Please write here'
+        value={value}
+        onChange={(content: string) => {
+          console.log(content)
+          setValue(content)
+        }}
+      />
+    </>
+  )
+}
