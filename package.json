@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prebuild": "run-s clean",
-    "build": "parcel build src/index.html --no-source-maps",
+    "build": "parcel build --no-source-maps --dist-dir ./build src/index.js",
     "clean": "rimraf ./dist",
     "lint": "eslint --ext ts,tsx src",
     "start": "parcel src/index.html --open",
