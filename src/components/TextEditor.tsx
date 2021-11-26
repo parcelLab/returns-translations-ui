@@ -1,9 +1,6 @@
 import React from 'react'
 import Form from 'react-bootstrap/Form'
 import ReactQuill from 'react-quill'
-import 'react-quill/dist/quill.snow.css'
-import './TextEditor.scss'
-
 interface TextEditorProps {
   description?: string
   placeholder?: string
