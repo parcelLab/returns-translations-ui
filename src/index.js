@@ -12,9 +12,23 @@ template.innerHTML = `
 #rx-config {
   --border-radius: 5px;
   --color-primary: #111e50;
+  --color-secondary: #067bc2;
   --color-lightGrey: #eee;
+  --color-grey: #bbb;
   --color-dark: #000000;
   font-family: 'Lato', sans-serif !important;
+}
+.nav-tabs .nav-link{
+  font-size: 25px;
+  color: var(--color-grey);
+  padding: 15px;  
+}
+
+.nav-tabs .nav-link.active {
+  color: #495057;
+  background-color: #fff;
+  border-color: transparent;
+  border-bottom: 2px solid var(--color-secondary);
 }
 
 .accordion-button:not(.collapsed) {
