@@ -16,6 +16,8 @@ const translations: { [k: string]: { [k: string]: string } } = {
       '<p>Bitte geben Sie Ihre Bestellnummer und die E-Mail Adresse ein und teilen Sie uns mit, welche Artikel Sie zurückgeben möchten.</p><p>Die Bestellnummer finden Sie auf der Rechnung.</p>',
     LABEL_REF: 'Bestellnummer ',
     LABEL_ZIP: 'E-Mail Adresse',
+    PLACEHOLDER_REF: 'e.g. 31234567890',
+    PLACEHOLDER_ZIP: 'e.g. EC2V 6AH',
     SUBMIT: 'Einloggen',
     SUBTEXT: '',
     ERROR_ORDERNO:
