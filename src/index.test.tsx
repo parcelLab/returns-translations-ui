@@ -7,5 +7,5 @@ test('App', () => {
     <Application lang='es' country='es' user='12324' />
   )
 
-  expect(getByText(/Application/)).toBeInTheDocument()
+  expect(getByText(/Login page/)).toBeInTheDocument()
 })
