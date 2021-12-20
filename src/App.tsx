@@ -4,6 +4,7 @@ import Tab from 'react-bootstrap/Tab'
 import Accordion from 'react-bootstrap/Accordion'
 import Tabs from 'react-bootstrap/Tabs'
 import TextEditor from './components/TextEditor'
+import TextArea from './components/TextArea'
 
 interface ApplicationProps {
   lang: string
@@ -21,11 +22,11 @@ const config = [
         translations: [
           {
             key: 'HEADING',
-            type: ''
+            type: 'editor'
           },
           {
             key: 'HEADERTEXT',
-            type: ''
+            type: 'editor'
           },
           {
             key: 'LABEL_REF',
@@ -698,9 +699,26 @@ export const Application = ({ lang, country, user }: ApplicationProps) => {
               <Accordion.Item eventKey={String(i)} key={sectionKey}>
                 <Accordion.Header>{sectionKey}</Accordion.Header>
                 <Accordion.Body>
-                  {translations.map(({ key: tKey }) => {
+                  {translations.map(({ key: tKey, type }) => {
+                    if (type === 'editor') {
+                      return (
+                        <TextEditor
+                          key={tKey}
+                          title={tKey}
+                          value={value?.[sectionKey]?.[tKey] || ''}
+                          onChange={value => {
+                            setValue(cValue => {
+                              return {
+                                ...cValue,
+                                [sectionKey]: { [tKey]: value }
+                              }
+                            })
+                          }}
+                        />
+                      )
+                    }
                     return (
-                      <TextEditor
+                      <TextArea
                         key={tKey}
                         title={tKey}
                         value={value?.[sectionKey]?.[tKey] || ''}
@@ -723,36 +741,4 @@ export const Application = ({ lang, country, user }: ApplicationProps) => {
       ))}
     </Tabs>
   )
-
-  /*
-  return (
-    <Accordion defaultActiveKey='0'>
-      {Object.keys(translations).map((section, i) => {
-        return (
-          <Accordion.Item eventKey={String(i)} key={section}>
-            <Accordion.Header>{section}</Accordion.Header>
-            <Accordion.Body>
-              {Object.keys(translations[section]).map(key => {
-                return (
-                  <TextEditor
-                    key={key}
-                    description={translations[section][key]}
-                    title={key}
-                    placeholder={translations[section][key]}
-                    value={value?.[section]?.[key] || ''}
-                    onChange={value => {
-                      setValue(cValue => {
-                        cValue[section][key] = value
-                        return { ...cValue }
-                      })
-                    }}
-                  />
-                )
-              })}
-            </Accordion.Body>
-          </Accordion.Item>
-        )
-      })}
-    </Accordion>
-  )*/
 }
